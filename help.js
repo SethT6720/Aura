@@ -1,10 +1,10 @@
 function get(id) {
-    let ele = Document.getElementById(id);
+    let ele = document.getElementById(id);
     return ele;
 }
 
 function pageShowing() {
-    let list = Document.getElementsByClassName('show');
+    let list = document.getElementsByClassName('show');
     if (list.length > 1) console.error('more than one page is showing');
     if (list.length === 1) return list[0];
 }
