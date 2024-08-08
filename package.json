@@ -1,0 +1,14 @@
+{
+    "files": [
+        "script.js",
+        "help.js",
+        "index.html",
+        "syle.css"
+    ],
+    "script.js": {
+        "type": "module"
+    },
+    "help.js": {
+        "type": "module"
+    }
+}
