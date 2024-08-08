@@ -5,10 +5,5 @@
         "index.html",
         "syle.css"
     ],
-    "script.js": {
-        "type": "module"
-    },
-    "help.js": {
-        "type": "module"
-    }
+    "type": "module"
 }
