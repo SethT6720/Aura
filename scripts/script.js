@@ -2,7 +2,11 @@ import { get, pageShowing, hs } from './help.js';
 
 async function main() {
 
-    let location = await page.evaluate(() => document.location.href);
+    const sleep = (ms) => new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
+
+    const location = await page.evaluate(() => document.location.href);
 
     const startPage = get('startPage');
     const startButton = get('startButton');
