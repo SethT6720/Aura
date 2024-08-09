@@ -27,4 +27,12 @@ function hs(ele, whatDo) {
     }
 }
 
-export { get, pageShowing, hs };
+function createEle(type, text, parent, onClick) {
+    const ele = document.createElement(type);
+    if (text) ele.innerHTML = text;
+    parent?.append(ele);
+    if (onClick) ele.onClick = onClick;
+    return ele;
+}
+
+export { get, pageShowing, hs, createEle };

@@ -1,4 +1,4 @@
-import { get, pageShowing, hs } from './help.js';
+import { get, pageShowing, hs, createEle } from './help.js';
 
 const startPage = get('startPage');
 const startButton = get('startButton');
