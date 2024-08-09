@@ -6,8 +6,6 @@ async function main() {
         setTimeout(resolve, ms);
     });
 
-    await sleep(1500);
-
     const startPage = get('startPage');
     const startButton = get('startButton');
     const gamePage = get('gamePage');
@@ -19,4 +17,4 @@ async function main() {
 
 }
 
-main();
+window.onload(main);
