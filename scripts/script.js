@@ -6,7 +6,7 @@ async function main() {
         setTimeout(resolve, ms);
     });
 
-    const location = await page.evaluate(() => document.location.href);
+    await sleep(1500);
 
     const startPage = get('startPage');
     const startButton = get('startButton');
