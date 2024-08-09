@@ -1,10 +1,18 @@
 import { get, pageShowing, hs } from './help.js';
 
-const startPage = get('startPage');
-const startButton = get('startButton');
-const gamePage = get('gamePage');
+async function main() {
 
-startButton.addEventListener('click', function x() {
-    hs(gamePage, 'switch');
-    startButton.removeEventListener('click', x);
-});
+    let location = await page.evaluate(() => document.location.href);
+
+    const startPage = get('startPage');
+    const startButton = get('startButton');
+    const gamePage = get('gamePage');
+
+    startButton.addEventListener('click', function x() {
+        hs(gamePage, 'switch');
+        startButton.removeEventListener('click', x);
+    });
+
+}
+
+main();
