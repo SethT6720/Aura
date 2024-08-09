@@ -4,6 +4,7 @@ const startPage = get('startPage');
 const startButton = get('startButton');
 const gamePage = get('gamePage');
 
-startButton.addEventListener('click', () => {
+startButton.addEventListener('click', function x() {
     hs(gamePage, 'switch');
+    startButton.removeEventListener('click', x);
 });
