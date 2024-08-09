@@ -6,6 +6,8 @@ async function main() {
         setTimeout(resolve, ms);
     });
 
+    sleep(1000);
+
     const startPage = get('startPage');
     const startButton = get('startButton');
     const gamePage = get('gamePage');
