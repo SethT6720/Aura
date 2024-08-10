@@ -24,13 +24,14 @@ startButton.addEventListener('click', function x() {
 
 //Function to update all counters
 function updateCounters() {
-    numberCounter.innerHTML = number;
+    let numberString = number.toString
+    numberCounter.innerText = numberString;
 }
 
 
 
 async function main() {
-    while (true) {
+    while(true) {
         updateCounters();
         await sleep(100);
     }
