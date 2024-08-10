@@ -35,8 +35,7 @@ async function main() {
         await sleep(100);
     }
 }
-
-numberCounter.innerText = number;
-alert(`You have ${number} Aura!`);
+let numberString = number.toString();
+numberCounter.innerText = numberString;
 
 main();
