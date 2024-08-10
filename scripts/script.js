@@ -24,8 +24,7 @@ startButton.addEventListener('click', function x() {
 
 //Function to update all counters
 function updateCounters() {
-    let numberString = number.toString
-    numberCounter.innerText = numberString;
+    numberCounter.innerText = number;
 }
 
 
@@ -36,5 +35,8 @@ async function main() {
         await sleep(100);
     }
 }
+
+numberCounter.innerText = number;
+alert(`You have ${number} Aura!`);
 
 main();
