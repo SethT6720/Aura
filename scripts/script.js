@@ -13,7 +13,7 @@ const numberCounter = get('numberCounter');
 
 
 //Declare game variables
-let number = 9;
+let number = 8;
 
 
 //Start button listener
