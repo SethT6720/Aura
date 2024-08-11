@@ -36,6 +36,6 @@ async function main() {
     }
 }
 let numberString = number.toString();
-numberCounter.innerHTML = numberString;
+numberCounter.innerHTML = number;
 
 main();
