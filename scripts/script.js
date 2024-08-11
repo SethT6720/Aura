@@ -30,12 +30,10 @@ function updateCounters() {
 
 
 async function main() {
-    while(true) {
+    while(1 > 0) {
         updateCounters();
         await sleep(100);
     }
 }
-let numberString = number.toString();
-numberCounter.innerHTML = number;
 
 main();
