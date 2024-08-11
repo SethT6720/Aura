@@ -34,9 +34,13 @@ function hs(ele, whatDo) {
 //Creates a new element with selected type, text content, appends to given parent, and if a button assigns a function on click
 function createEle(type, text, parent, onClick) {
     const ele = document.createElement(type);
-    if (text) ele.innerHTML = text;
+    if (text) {
+        ele.innerHTML = text;
+    }
     parent?.append(ele);
-    if (onClick) ele.onClick = onClick;
+    if (onClick) { 
+        ele.addEventListener('click', onClick);
+    }
     return ele;
 }
 

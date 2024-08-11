@@ -28,7 +28,7 @@ function updateCounters() {
 }
 
 //Game code
-createEle('button', 'Click me!', gamePage, () => {
+const button1 = createEle('button', 'Click me!', gamePage, () => {
     number++;
 });
 
