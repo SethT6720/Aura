@@ -27,6 +27,10 @@ function updateCounters() {
     numberCounter.innerText = number;
 }
 
+//Game code
+createEle('button', 'Click me!', gamePage, () => {
+    number++;
+});
 
 
 async function main() {
