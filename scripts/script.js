@@ -10,10 +10,12 @@ const startPage = get('startPage');
 const startButton = get('startButton');
 const gamePage = get('gamePage');
 const numberCounter = get('numberCounter');
+const looksmaxxingCounter = get('looksmaxxingCounter')
 
 
 //Declare game variables
 let number = 8;
+let looksmaxxing = 0;
 
 
 //Start button listener
