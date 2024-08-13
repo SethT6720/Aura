@@ -12,7 +12,7 @@ function pageShowing() {
 }
 
 //takes an element and either hides or shows it, or sets it as the current page showing
-function hs(ele, whatDo) {
+function hs(ele, whatDo, ele2) {
     switch (whatDo) {
         case 'hide':
             ele.classList.add('hide');
@@ -22,11 +22,10 @@ function hs(ele, whatDo) {
             ele.classList.add('show')
             ele.classList.remove('hide')
         case 'switch':
-            let ele2 = pageShowing();
             ele.classList.add('show');
             ele.classList.remove('hide');
-            ele2.classList.add('hide');
-            ele2.classList.remvove('show');
+            ele2?.classList.add('hide');
+            ele2?.classList.remvove('show');
     }
 }
 

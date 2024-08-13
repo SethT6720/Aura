@@ -19,16 +19,16 @@ const gametoMaxxing = get('gametoMaxxing');
 const maxxingtoGame = get('maxxingtoGame');
 
 clickEvent(startButton, function x() {
-    hs(gamePage, 'switch');
+    hs(gamePage, 'switch', startPage);
     startButton.removeEventListener('click', x);
 });
 
 clickEvent(gametoMaxxing, () => {
-    hs(looksmaxxingPage, 'switch');
+    hs(looksmaxxingPage, 'switch', gamePage);
 });
 
 clickEvent(maxxingtoGame, () => {
-    hs(gamePage, 'switch');
+    hs(gamePage, 'switch', looksmaxxingPage);
 });
 
 
