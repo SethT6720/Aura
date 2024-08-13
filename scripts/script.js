@@ -1,43 +1,84 @@
-import { get, pageShowing, hs, createEle } from './help.js';
+import { get, pageShowing, hs, createEle, clickEvent } from './help.js';
 
 //Delay for async funcs
 const sleep = (ms) => new Promise((resolve) => {
     setTimeout(resolve, ms);
 });
 
-//Decalre element variables
+//Declare element variables
 const startPage = get('startPage');
-const startButton = get('startButton');
 const gamePage = get('gamePage');
-const numberCounter = get('numberCounter');
-const looksmaxxingCounter = get('looksmaxxingCounter')
+const auraCounter = get('auraCounter');
+const looksmaxxingPage = get('looksmaxxingPage');
+const looksmaxxingCounter = get('looksmaxxingCounter');
 
 
-//Declare game variables
-let number = 8;
-let looksmaxxing = 0;
+//Navigation stuff
+const startButton = get('startButton');
+const gametoMaxxing = get('gametoMaxxing');
+const maxxingtoGame = get('maxxingtoGame');
 
-
-//Start button listener
-startButton.addEventListener('click', function x() {
+clickEvent(startButton, function x() {
     hs(gamePage, 'switch');
     startButton.removeEventListener('click', x);
 });
 
-//Function to update all counters
-function updateCounters() {
-    numberCounter.innerText = number;
-}
+clickEvent(gametoMaxxing, () => {
+    hs(looksmaxxingPage, 'switch');
+});
 
-//Game code
-const button1 = createEle('button', 'Click me!', gamePage, () => {
-    number++;
+clickEvent(maxxingtoGame, () => {
+    hs(gamePage, 'switch');
 });
 
 
+
+//Declare Flags
+let maxxingUnlocked = false;
+
+//Declare game variables
+let aura = 8;
+let looksmaxxing = 0;
+
+
+
+
+//Functions
+
+//Function to update all counters
+function updateCounters() {
+    auraCounter.innerText = aura;
+}
+
+//Function to check flags
+function flagChecker() {
+    //looksmaxxing
+    if (maxxingUnlocked === false && aura >= 50) {
+        maxxingUnlocked = true;
+    } else if (maxxingUnlocked === true) {
+        if (gametoMaxxing.classList.contains('hide')) {
+            gametoMaxxing.classList.remove('hide');
+        }
+    }
+}
+
+
+
+
+//Game code
+
+const button1 = createEle('button', 'Click me!', gamePage, () => {
+    aura++;
+});
+
+
+
+
+//Main
 async function main() {
     while(1 > 0) {
         updateCounters();
+        flagChecker();
         await sleep(100);
     }
 }

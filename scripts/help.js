@@ -44,4 +44,8 @@ function createEle(type, text, parent, onClick) {
     return ele;
 }
 
-export { get, pageShowing, hs, createEle };
+function clickEvent(ele, event) {
+    ele.addEventListener('click', event);
+}
+
+export { get, pageShowing, hs, createEle, clickEvent };
