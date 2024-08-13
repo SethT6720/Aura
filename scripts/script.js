@@ -23,11 +23,11 @@ clickEvent(startButton, function x() {
     startButton.removeEventListener('click', x);
 });
 
-clickEvent(gametoMaxxing, () => {
+clickEvent(gametoMaxxing, function x() {
     hs(looksmaxxingPage, 'switch', gamePage);
 });
 
-clickEvent(maxxingtoGame, () => {
+clickEvent(maxxingtoGame, function x() {
     hs(gamePage, 'switch', looksmaxxingPage);
 });
 
