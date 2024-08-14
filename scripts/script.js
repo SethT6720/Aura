@@ -84,8 +84,8 @@ async function main() {
         if (gameStarted === true) {
             updateCounters();
             flagChecker();
-            await sleep(100);
         }
+        await sleep(100);
     }
 }
 
