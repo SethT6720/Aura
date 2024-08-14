@@ -80,10 +80,12 @@ clickEvent(auraButton, function x() {
 
 //Main
 async function main() {
-    while(1 > 0 && gameStarted === true) {
-        updateCounters();
-        flagChecker();
-        await sleep(100);
+    while(1 > 0) {
+        if (gameStarted === true) {
+            updateCounters();
+            flagChecker();
+            await sleep(100);
+        }
     }
 }
 
