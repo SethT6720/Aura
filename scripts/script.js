@@ -15,7 +15,7 @@ const looksmaxxingCounter = get('looksmaxxingCounter');
 
 //Declare Flags
 let maxxingUnlocked = false;
-
+let gameStarted = false;
 
 
 //Declare game variables
@@ -32,6 +32,7 @@ const maxxingtoGame = get('maxxingtoGame');
 
 clickEvent(startButton, function x() {
     hs(gamePage, 'switch', startPage);
+    main();
     startButton.removeEventListener('click', x);
 });
 
@@ -85,5 +86,3 @@ async function main() {
         await sleep(100);
     }
 }
-
-main();
