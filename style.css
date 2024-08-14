@@ -19,3 +19,7 @@ html {
  border: 2px;
  margin-right: 10px;
 }
+
+#getAura {
+    height: 100px;
+}
