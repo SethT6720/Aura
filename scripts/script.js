@@ -9,8 +9,20 @@ const sleep = (ms) => new Promise((resolve) => {
 const startPage = get('startPage');
 const gamePage = get('gamePage');
 const auraCounter = get('auraCounter');
+const auraButton = get('getAura');
 const looksmaxxingPage = get('looksmaxxingPage');
 const looksmaxxingCounter = get('looksmaxxingCounter');
+
+//Declare Flags
+let maxxingUnlocked = false;
+
+
+
+//Declare game variables
+let aura = 8;
+let looksmaxxing = 0;
+
+
 
 
 //Navigation stuff
@@ -30,15 +42,6 @@ clickEvent(gametoMaxxing, function x() {
 clickEvent(maxxingtoGame, function x() {
     hs(gamePage, 'switch', looksmaxxingPage);
 });
-
-
-
-//Declare Flags
-let maxxingUnlocked = false;
-
-//Declare game variables
-let aura = 8;
-let looksmaxxing = 0;
 
 
 
@@ -67,7 +70,7 @@ function flagChecker() {
 
 //Game code
 
-const button1 = createEle('button', 'Click me!', gamePage, () => {
+clickEvent(auraButton, function x() {
     aura++;
 });
 
