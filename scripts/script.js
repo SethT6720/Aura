@@ -32,7 +32,7 @@ const maxxingtoGame = get('maxxingtoGame');
 
 clickEvent(startButton, function x() {
     hs(gamePage, 'switch', startPage);
-    main();
+    gameStarted = true;
     startButton.removeEventListener('click', x);
 });
 
@@ -80,9 +80,11 @@ clickEvent(auraButton, function x() {
 
 //Main
 async function main() {
-    while(1 > 0) {
+    while(1 > 0 && gameStarted === true) {
         updateCounters();
         flagChecker();
         await sleep(100);
     }
 }
+
+main();
