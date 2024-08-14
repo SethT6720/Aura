@@ -11,3 +11,10 @@ html {
 .hide {
   display: none;
 }
+
+#statsDisplay {
+ height: 30%
+ width: 30%
+ padding: 5%
+ border: 2px
+}
