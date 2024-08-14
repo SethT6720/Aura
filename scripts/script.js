@@ -15,7 +15,6 @@ const looksmaxxingCounter = get('looksmaxxingCounter');
 
 //Declare Flags
 let maxxingUnlocked = false;
-let gameStarted = false;
 
 
 //Declare game variables
@@ -32,7 +31,6 @@ const maxxingtoGame = get('maxxingtoGame');
 
 clickEvent(startButton, function x() {
     hs(gamePage, 'switch', startPage);
-    gameStarted = true;
     startButton.removeEventListener('click', x);
 });
 
@@ -81,10 +79,8 @@ clickEvent(auraButton, function x() {
 //Main
 async function main() {
     while(1 > 0) {
-        if (gameStarted === true) {
-            updateCounters();
-            flagChecker();
-        }
+        updateCounters();
+        flagChecker();
         await sleep(100);
     }
 }
