@@ -13,10 +13,11 @@ html {
 }
 
 #statsDisplay {
- height: 30px;
- width: 30px;
- padding: 5px;
- border: 2px;
- margin-right: 10px;
-}
-
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  border: 2px;
+  margin-right: 10px;
+  background-color: black;
+  color: white;
+ }
