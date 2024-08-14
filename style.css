@@ -13,8 +13,9 @@ html {
 }
 
 #statsDisplay {
- height: 30%
- width: 30%
- padding: 5%
- border: 2px
+ height: 30%;
+ width: 30%;
+ padding: 5%;
+ border: 2px;
+ margin-right: 10%;
 }
