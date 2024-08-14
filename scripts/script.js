@@ -15,7 +15,6 @@ const looksmaxxingCounter = get('looksmaxxingCounter');
 
 //Declare Flags
 let maxxingUnlocked = false;
-let gameStarted = false;
 
 
 //Declare game variables
