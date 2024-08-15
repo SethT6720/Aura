@@ -67,6 +67,7 @@ function flagChecker() {
         if (gametoMaxxing.classList.contains('hide')) {
             gametoMaxxing.classList.remove('hide');
         }
+        get('searchButton').classList.remove('hide);
     }
 }
 
