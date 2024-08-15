@@ -9,6 +9,7 @@ const sleep = (ms) => new Promise((resolve) => {
 const startPage = get('startPage');
 const gamePage = get('gamePage');
 const statsAuraCounter = get('statsAuraCounter');
+const statsCurrentlyDoing = get('statsCurrentlyDoing');
 const auraCounter = get('auraCounter');
 const auraButton = get('getAura');
 const looksmaxxingPage = get('looksmaxxingPage');
@@ -20,6 +21,8 @@ let maxxingUnlocked = false;
 
 //Declare game variables
 let aura = 8;
+let currentlyDoing = 'None'
+let currentlyDoingProgress = 0
 let looksmaxxing = 0;
 
 
@@ -52,6 +55,7 @@ clickEvent(maxxingtoGame, function x() {
 function updateCounters() {
     auraCounter.innerText = aura;
     statsAuraCounter.innerText = aura;
+    statsCurrentlyDoing.innerText = currentlyDoing;
 }
 
 //Function to check flags
