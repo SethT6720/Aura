@@ -12,6 +12,10 @@ html {
   display: none;
 }
 
+.pBar {
+  border: 1px solid black;
+}
+
 #statsDisplay {
   position: sticky;
   top: 0%;

@@ -14,6 +14,8 @@ const auraCounter = get('auraCounter');
 const auraButton = get('getAura');
 const looksmaxxingPage = get('looksmaxxingPage');
 const looksmaxxingCounter = get('looksmaxxingCounter');
+const searchButton = get('searchButton');
+
 
 //Declare Flags
 let maxxingUnlocked = false;
@@ -67,7 +69,7 @@ function flagChecker() {
         if (gametoMaxxing.classList.contains('hide')) {
             gametoMaxxing.classList.remove('hide');
         }
-        get('searchButton').classList.remove('hide);
+        searchButton.classList.remove('hide');
     }
 }
 
