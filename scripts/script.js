@@ -31,7 +31,6 @@ const maxxingtoGame = get('maxxingtoGame');
 
 clickEvent(startButton, function x() {
     hs(gamePage, 'switch', startPage);
-    main();
     startButton.removeEventListener('click', x);
 });
 
@@ -85,3 +84,5 @@ async function main() {
         await sleep(100);
     }
 }
+
+main();
