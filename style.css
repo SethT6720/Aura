@@ -32,7 +32,7 @@ html {
   position: sticky;
   top: 0%;
   text-align: center;
-  height: 10%;
+  height: 100px;
   width: 100%;
   border: 1px solid black;
  }
@@ -40,9 +40,9 @@ html {
 
  #Console {
   position: sticky;
-  top: 10%;
-  right: 10%;
+  top: 105px;
+  right: 255px;
   height: 500px;
-  width: 10%;
+  width: 250px;
   border: 1px solid black;
  }
