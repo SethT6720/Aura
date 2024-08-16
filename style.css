@@ -36,3 +36,11 @@ html {
   width: 100%;
   border: 1px solid black;
  }
+
+ #Console {
+  position: sticky;
+  top: 105px;
+  height: 500px;
+  width: 250px;
+  left: 100%;
+ }
