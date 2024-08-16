@@ -74,11 +74,14 @@ function flagChecker() {
     }
 }
 
-async function pBar(Bar, Progress, time) {
+async function pBar(Bar, Progress, time, button, func) {
     let hidden = false;
     let eachPercent = time / 100;
     let percent = Progress.style;
     percent.width = 0 + '%';
+    currentlyDoing = 'Searching...';
+
+    button?.removeEventListener('click', func);
 
     if (Bar.classList.contains('hide')) {
         hidden = true;
@@ -87,6 +90,12 @@ async function pBar(Bar, Progress, time) {
     for (let i = 0; i < 100; i++) {
         await sleep(eachPercent);
         percent.width = (i + 1) + '%';
+        if (i === 99) {
+            currentlyDoing = 'None';
+            percent.width = 0 + '%';
+            if (hidden) Bar.classList.add('hide');
+            clickEvent(button, func);
+        }
     }
 }
 
@@ -98,7 +107,7 @@ clickEvent(auraButton, function x() {
 });
 
 clickEvent(searchButton, function x() {
-    pBar(currentlyDoingpBar, currentlyDoingpBarProgress, 10000);
+    pBar(currentlyDoingpBar, currentlyDoingpBarProgress, 10000, searchButton, x);
 });
 
 
