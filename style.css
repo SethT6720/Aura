@@ -13,7 +13,17 @@ html {
 }
 
 .pBar {
-  border: 1px solid black;
+  border: 1px solid rgb(40, 70, 40);
+  width: 75%;
+  height: 10px;
+}
+
+.pBarProgress {
+  background-color: rgb(40, 180, 40);
+  height: 100%;
+  width: 0%;
+  color: black;
+  text-align: center;
 }
 
 #statsDisplay {
