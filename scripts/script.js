@@ -77,8 +77,8 @@ function flagChecker() {
 async function pBar(Bar, Progress, time) {
     let hidden = false;
     let eachPercent = time / 100;
-    let percent = Progress.style.width;
-    percent = 0 + '%';
+    let percent = Progress.style;
+    percent.width = 0 + '%';
 
     if (Bar.classList.contains('hide')) {
         hidden = true;
@@ -86,7 +86,7 @@ async function pBar(Bar, Progress, time) {
     }
     for (let i = 0; i < 100; i++) {
         await sleep(eachPercent);
-        percent = (i + 1) + '%';
+        percent.width = (i + 1) + '%';
     }
 }
 
