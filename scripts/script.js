@@ -74,12 +74,12 @@ function flagChecker() {
     }
 }
 
-async function pBar(Bar, Progress, time, button, func) {
+async function pBar(Bar, Progress, time, button, func, whatDoing) {
     let hidden = false;
     let eachPercent = time / 100;
     let percent = Progress.style;
     percent.width = 0 + '%';
-    currentlyDoing = 'Searching...';
+    currentlyDoing = whatDoing;
 
     button?.removeEventListener('click', func);
 
@@ -107,7 +107,7 @@ clickEvent(auraButton, function x() {
 });
 
 clickEvent(searchButton, function x() {
-    pBar(currentlyDoingpBar, currentlyDoingpBarProgress, 10000, searchButton, x);
+    pBar(currentlyDoingpBar, currentlyDoingpBarProgress, 10000, searchButton, x, 'Searching...');
 });
 
 
