@@ -14,6 +14,9 @@ const auraCounter = get('auraCounter');
 const auraButton = get('getAura');
 const looksmaxxingPage = get('looksmaxxingPage');
 const looksmaxxingCounter = get('looksmaxxingCounter');
+const searchButton = get('searchButton');
+const currentlyDoingpBar = get('currentlyDoingpBar');
+const currentlyDoingpBarProgress = get('currentlyDoingpBarProgress');
 
 //Declare Flags
 let maxxingUnlocked = false;
@@ -67,11 +70,25 @@ function flagChecker() {
         if (gametoMaxxing.classList.contains('hide')) {
             gametoMaxxing.classList.remove('hide');
         }
-        get('searchButton').classList.remove('hide);
+        searchButton.classList.remove('hide');
     }
 }
 
+async function pBar(Bar, Progress, time) {
+    let hidden = false;
+    let eachPercent = time / 100;
+    let percent = Progress.style.width;
+    percent = 0 + '%';
 
+    if (Bar.classList.contains('hide')) {
+        hidden = true;
+        Bar.classList.remove('hide');
+    }
+    for (let i = 0; i < 100; i++) {
+        await sleep(eachPercent);
+        percent = (i + 1) + '%';
+    }
+}
 
 
 //Game code
@@ -80,7 +97,9 @@ clickEvent(auraButton, function x() {
     aura++;
 });
 
-
+clickEvent(searchButton, function x() {
+    pBar(currentlyDoingpBar, currentlyDoingpBarProgress, 10000);
+});
 
 
 //Main
