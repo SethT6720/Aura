@@ -28,7 +28,6 @@ html {
 }
 
 #statsDisplay {
-  position: sticky;
   display: flex;
   top: 0%;
   text-align: center;
@@ -39,9 +38,10 @@ html {
  }
 
  #Console {
-  position: sticky;
+  position: absolute;
   top: 105px;
   height: 500px;
   width: 250px;
   left: 100%;
+  border: 1px solid black;
  }
