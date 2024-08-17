@@ -28,20 +28,18 @@ html {
 }
 
 #statsDisplay {
-  display: flex;
   top: 0%;
   text-align: center;
   height: 100px;
   width: 100%;
   border: 1px solid black;
-  justify-items: center;
  }
 
  #Console {
   position: absolute;
-  top: 105px;
+  top: 110px;
   height: 500px;
-  width: 250px;
-  left: 100%;
+  width: 10%;
+  left: 90%;
   border: 1px solid black;
  }
