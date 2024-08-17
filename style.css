@@ -17,7 +17,6 @@ html {
   background-color: rgb(40, 70, 40);
   width: 90%;
   height: 10px;
-  justify-self: center;
 }
 
 .pBarProgress {
@@ -30,11 +29,13 @@ html {
 
 #statsDisplay {
   position: sticky;
+  display: flex;
   top: 0%;
   text-align: center;
   height: 100px;
   width: 100%;
   border: 1px solid black;
+  justify-items: center;
  }
 
  #Console {
