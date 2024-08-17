@@ -17,6 +17,7 @@ html {
   background-color: rgb(40, 70, 40);
   width: 90%;
   height: 10px;
+  justify-self: center;
 }
 
 .pBarProgress {
