@@ -13,10 +13,12 @@ html {
 }
 
 .pBar {
+  position: relative;
   border: 1px solid black;
   background-color: rgb(40, 70, 40);
   width: 90%;
   height: 10px;
+  left: 5%;
   justify-self: center;
   text-align: center;
 }
@@ -43,6 +45,6 @@ html {
   top: 115px;
   height: 500px;
   width: 15%;
-  left: 85%;
+  left: 90%;
   border: 1px solid black;
  }

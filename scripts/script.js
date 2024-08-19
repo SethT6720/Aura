@@ -17,6 +17,9 @@ const looksmaxxingCounter = get('looksmaxxingCounter');
 const searchButton = get('searchButton');
 const currentlyDoingpBar = get('currentlyDoingpBar');
 const currentlyDoingpBarProgress = get('currentlyDoingpBarProgress');
+const currentlyDoingProgressCounter = get('currentlyDoingProgressCounter');
+const sendMessageButton = get('sendMessage');
+const cons = get('Console');
 
 //Declare Flags
 let maxxingUnlocked = false;
@@ -74,7 +77,7 @@ function flagChecker() {
     }
 }
 
-async function pBar(Bar, Progress, time, button, func, whatDoing) {
+async function pBar(Bar, Progress, time, button, func, whatDoing, progressCounter) {
     let hidden = false;
     let eachPercent = time / 100;
     let percent = Progress.style;
@@ -90,6 +93,7 @@ async function pBar(Bar, Progress, time, button, func, whatDoing) {
     for (let i = 0; i < 100; i++) {
         await sleep(eachPercent);
         percent.width = (i + 1) + '%';
+        progressCounter.innerText = (i + 1);
         if (i === 99) {
             currentlyDoing = 'None';
             percent.width = 0 + '%';
@@ -107,7 +111,15 @@ clickEvent(auraButton, function x() {
 });
 
 clickEvent(searchButton, function x() {
-    pBar(currentlyDoingpBar, currentlyDoingpBarProgress, 10000, searchButton, x, 'Searching...');
+    pBar(currentlyDoingpBar, currentlyDoingpBarProgress, 10000, searchButton, x, 'Searching...', currentlyDoingProgressCounter);
+});
+
+clickEvent(sendMessageButton, function x() {
+    const br = createEle('br');
+    const br2 = createEle('br');
+    const text = createEle('p', 'This is a test');
+
+    cons.append(text, br, br2);
 });
 
 
