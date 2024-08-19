@@ -77,6 +77,8 @@ function flagChecker() {
     }
 }
 
+
+//Progress Bar function
 async function pBar(Bar, Progress, time, button, func, whatDoing, progressCounter) {
     let hidden = false;
     let eachPercent = time / 100;
@@ -99,9 +101,17 @@ async function pBar(Bar, Progress, time, button, func, whatDoing, progressCounte
             percent.width = 0 + '%';
             if (hidden) Bar.classList.add('hide');
             clickEvent(button, func);
+            return;
         }
     }
 }
+
+//Function to send a message in the Console
+function sendCons(message) {
+    createEle('p', message, cons);
+}
+
+
 
 
 //Game code
@@ -111,14 +121,16 @@ clickEvent(auraButton, function x() {
 });
 
 clickEvent(searchButton, function x() {
-    pBar(currentlyDoingpBar, currentlyDoingpBarProgress, 10000, searchButton, x, 'Searching...', currentlyDoingProgressCounter);
+    pBar(currentlyDoingpBar, currentlyDoingpBarProgress, 10000, searchButton, x, 'Searching...', currentlyDoingProgressCounter)
+    .then(() => {
+        let rand = Math.floor(Math.random() * 50) + 50;
+        aura += rand;
+        sendCons(`You gained ${rand} aura from searching!`);
+    });
 });
 
 clickEvent(sendMessageButton, function x() {
-    const br = createEle('br');
-    const text = createEle('p', 'This is a test');
-
-    cons.append(text, br);
+    sendCons('test numero dos');
 });
 
 
