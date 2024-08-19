@@ -40,9 +40,9 @@ html {
 
  #Console {
   position: absolute;
-  top: 110px;
+  top: 115px;
   height: 500px;
-  width: 10%;
-  left: 80%;
+  width: 15%;
+  left: 85%;
   border: 1px solid black;
  }
