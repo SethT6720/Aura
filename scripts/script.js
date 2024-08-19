@@ -93,7 +93,7 @@ async function pBar(Bar, Progress, time, button, func, whatDoing, progressCounte
     for (let i = 0; i < 100; i++) {
         await sleep(eachPercent);
         percent.width = (i + 1) + '%';
-        progressCounter.innerText = (i + 1);
+        progressCounter.innerText = (i + 1) + '%';
         if (i === 99) {
             currentlyDoing = 'None';
             percent.width = 0 + '%';
@@ -116,10 +116,9 @@ clickEvent(searchButton, function x() {
 
 clickEvent(sendMessageButton, function x() {
     const br = createEle('br');
-    const br2 = createEle('br');
     const text = createEle('p', 'This is a test');
 
-    cons.append(text, br, br2);
+    cons.append(text, br);
 });
 
 
