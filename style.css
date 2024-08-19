@@ -43,8 +43,8 @@ html {
  #Console {
   position: absolute;
   top: 115px;
+  left: 85%;
   height: 500px;
   width: 15%;
-  left: 85%;
   border: 1px solid black;
  }
