@@ -77,6 +77,8 @@ function flagChecker() {
     }
 }
 
+
+//Progress Bar function
 async function pBar(Bar, Progress, time, button, func, whatDoing, progressCounter) {
     let hidden = false;
     let eachPercent = time / 100;
@@ -103,6 +105,13 @@ async function pBar(Bar, Progress, time, button, func, whatDoing, progressCounte
     }
 }
 
+//Function to send a message in the Console
+function sendCons(message) {
+    createEle('p', message, cons);
+}
+
+
+
 
 //Game code
 
@@ -115,10 +124,7 @@ clickEvent(searchButton, function x() {
 });
 
 clickEvent(sendMessageButton, function x() {
-    const br = createEle('br');
-    const text = createEle('p', 'This is a test');
-
-    cons.append(text, br);
+    sendCons('test numero dos');
 });
 
 
