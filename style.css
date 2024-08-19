@@ -45,6 +45,6 @@ html {
   top: 115px;
   height: 500px;
   width: 15%;
-  left: (85% - 5px);
+  left: 85%;
   border: 1px solid black;
  }
