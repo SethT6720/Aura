@@ -100,6 +100,7 @@ function flagChecker() {
         const dropsPH = get('dropsCounterPH');
         const brPH = get('dropsBrPH');
 
+        cons.classList.remove('hide');
         stats.replaceChild(statsDropsCounter, dropsPH);
         stats.replaceChild(br, brPH);
     }
