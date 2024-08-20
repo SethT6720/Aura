@@ -77,12 +77,12 @@ function calculateDropCost() {
 function updateCounters() {
     let nextDrop = calculateDropCost();
 
-    auraCounter.innerText = aura;
-    statsAuraCounter.innerText = `Aura: ${aura}`;
+    auraCounter.innerText = aura.toFixed(0);
+    statsAuraCounter.innerText = `Aura: ${aura.toFixed(0)}`;
     statsCurrentlyDoing.innerText = `Currently Doing: ${currentlyDoing}`;
     statsDropsCounter.innerText = `Drops: ${drops.toFixed(0)}`;
-    buyDropButton.innerText = `${nextDrop} Aura`;
-    dropsCounter.innerText = drops;
+    buyDropButton.innerText = `${nextDrop.toFixed(0)} Aura`;
+    dropsCounter.innerText = drops.toFixed(0);
 }
 
 //Function to check flags
