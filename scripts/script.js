@@ -8,16 +8,24 @@ const sleep = (ms) => new Promise((resolve) => {
 //Declare element variables
 const startPage = get('startPage');
 const gamePage = get('gamePage');
+
 const statsAuraCounter = get('statsAuraCounter');
+const statsDropsCounter = get('statsDropsCounter');
 const statsCurrentlyDoing = get('statsCurrentlyDoing');
+
 const auraCounter = get('auraCounter');
 const auraButton = get('getAura');
+
 const condensingPage = get('condensingPage');
+const buyDropButton = get('buyDropButton');
 const dropsCounter = get('dropsCounter');
+
 const searchButton = get('searchButton');
+
 const currentlyDoingpBar = get('currentlyDoingpBar');
 const currentlyDoingpBarProgress = get('currentlyDoingpBarProgress');
 const currentlyDoingProgressCounter = get('currentlyDoingProgressCounter');
+
 const cons = get('Console');
 
 //Declare Flags
@@ -29,6 +37,7 @@ let aura = 8;
 let currentlyDoing = 'None'
 let currentlyDoingProgress = 0
 let drops = 0;
+let totalDrops = 0
 
 
 
@@ -56,11 +65,18 @@ clickEvent(condensingToGame, function x() {
 
 //Functions
 
+//Temp formula, prob needs balancing later
+function calculateDropCost() {
+    return 50^((totalDrops * .5) + 1)
+}
+
 //Function to update all counters
 function updateCounters() {
     auraCounter.innerText = aura;
     statsAuraCounter.innerText = aura;
     statsCurrentlyDoing.innerText = currentlyDoing;
+    statsDropsCounter.innerText = drops
+    buyDropButton.innerText = calculateDropCost()
     dropsCounter.innerText = drops;
 }
 
@@ -74,6 +90,7 @@ function flagChecker() {
             gameToCondensing.classList.remove('hide');
         }
         searchButton.classList.remove('hide');
+        statsDropsCounter.classList.remove('hide');
     }
 }
 
@@ -116,7 +133,17 @@ function sendCons(message) {
 }
 
 
-
+function buyDrop() {
+    if (aura >= calculateDropCost()) {
+        aura -= calculateDropCost()
+        drops++
+        totalDrops++
+        sendCons('Bought a drop')
+    }
+    else {
+        sendCons('Not enough Aura')
+    }
+}
 
 //Game code
 
@@ -131,6 +158,10 @@ clickEvent(searchButton, function x() {
         aura += rand;
         sendCons(`You gained ${rand} aura from searching!`);
     });
+});
+
+clickEvent(buyDropButton, function x(){
+    buyDrop()
 });
 
 
