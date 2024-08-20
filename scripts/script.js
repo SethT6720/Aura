@@ -61,6 +61,7 @@ function updateCounters() {
     auraCounter.innerText = aura;
     statsAuraCounter.innerText = aura;
     statsCurrentlyDoing.innerText = currentlyDoing;
+    dropsCounter.innerText = drops;
 }
 
 //Function to check flags
@@ -138,7 +139,7 @@ async function main() {
     while(1 > 0) {
         updateCounters();
         flagChecker();
-        await sleep(100);
+        await sleep(10);
     }
 }
 
