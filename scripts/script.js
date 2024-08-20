@@ -18,7 +18,6 @@ const searchButton = get('searchButton');
 const currentlyDoingpBar = get('currentlyDoingpBar');
 const currentlyDoingpBarProgress = get('currentlyDoingpBarProgress');
 const currentlyDoingProgressCounter = get('currentlyDoingProgressCounter');
-const sendMessageButton = get('sendMessage');
 const cons = get('Console');
 
 //Declare Flags
@@ -62,6 +61,7 @@ function updateCounters() {
     auraCounter.innerText = aura;
     statsAuraCounter.innerText = aura;
     statsCurrentlyDoing.innerText = currentlyDoing;
+    dropsCounter.innerText = drops;
 }
 
 //Function to check flags
@@ -133,17 +133,13 @@ clickEvent(searchButton, function x() {
     });
 });
 
-clickEvent(sendMessageButton, function x() {
-    sendCons('test numero dos');
-});
-
 
 //Main
 async function main() {
     while(1 > 0) {
         updateCounters();
         flagChecker();
-        await sleep(100);
+        await sleep(10);
     }
 }
 
