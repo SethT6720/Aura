@@ -49,7 +49,14 @@ const gameToCondensing = get('gameToCondensing');
 const condensingToGame = get('condensingToGame');
 
 clickEvent(startButton, function x() {
+    let statsStyle = stats.style;
+    let consStyle = cons.style;
+
     hs(gamePage, 'switch', startPage);
+
+    statsStyle.display = 'block';
+    consStyle.display = 'block';
+
     startButton.removeEventListener('click', x);
 });
 
@@ -74,11 +81,13 @@ function calculateDropCost() {
 
 //Function to update all counters
 function updateCounters() {
+    let nextDrop = calculateDropCost();
+
     auraCounter.innerText = aura;
     statsAuraCounter.innerText = `Aura: ${aura}`;
     statsCurrentlyDoing.innerText = `Currently Doing: ${currentlyDoing}`;
     statsDropsCounter.innerText = `Drops: ${drops}`;
-    buyDropButton.innerText = `${calculateDropCost()} Aura`;
+    buyDropButton.innerText = `${nextDrop} Aura`;
     dropsCounter.innerText = drops;
 }
 
@@ -101,7 +110,6 @@ function flagChecker() {
         const dropsPH = get('dropsCounterPH');
         const brPH = get('dropsBrPH');
 
-        cons.classList.remove('hide');
         stats.replaceChild(statsDropsCounter, dropsPH);
         stats.replaceChild(br, brPH);
     }
