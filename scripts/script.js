@@ -10,7 +10,7 @@ const startPage = get('startPage');
 const gamePage = get('gamePage');
 
 const statsAuraCounter = get('statsAuraCounter');
-const statsDropsCounter = get('statsDropsCounter');
+const statsDropsCounter = document.createElement('span');
 const statsCurrentlyDoing = get('statsCurrentlyDoing');
 
 const auraCounter = get('auraCounter');
@@ -26,11 +26,12 @@ const currentlyDoingpBar = get('currentlyDoingpBar');
 const currentlyDoingpBarProgress = get('currentlyDoingpBarProgress');
 const currentlyDoingProgressCounter = get('currentlyDoingProgressCounter');
 
+const stats = get('statsDisplay');
 const cons = get('Console');
 
 //Declare Flags
 let condensingUnlocked = false;
-
+let dropsInStats = false;
 
 //Declare game variables
 let aura = 8;
@@ -49,6 +50,8 @@ const condensingToGame = get('condensingToGame');
 
 clickEvent(startButton, function x() {
     hs(gamePage, 'switch', startPage);
+    stats.classList.remove('hide');
+    console.classList.remove('hide');
     startButton.removeEventListener('click', x);
 });
 
@@ -67,16 +70,16 @@ clickEvent(condensingToGame, function x() {
 
 //Temp formula, prob needs balancing later
 function calculateDropCost() {
-    return 50^((totalDrops * .5) + 1)
+    return 50^((totalDrops * .5) + 1);
 }
 
 //Function to update all counters
 function updateCounters() {
     auraCounter.innerText = aura;
-    statsAuraCounter.innerText = aura;
-    statsCurrentlyDoing.innerText = currentlyDoing;
-    statsDropsCounter.innerText = drops
-    buyDropButton.innerText = calculateDropCost()
+    statsAuraCounter.innerText = `Aura: ${aura}`;
+    statsCurrentlyDoing.innerText = `Currently Doing: ${currentlyDoing}`;
+    statsDropsCounter.innerText = `Drops: ${drops}`;
+    buyDropButton.innerText = calculateDropCost();
     dropsCounter.innerText = drops;
 }
 
@@ -91,6 +94,14 @@ function flagChecker() {
         }
         searchButton.classList.remove('hide');
         statsDropsCounter.classList.remove('hide');
+    }
+    if (condensingUnlocked && !dropsInStats) {
+        const br = document.createElement('br');
+        let children = stats.children;
+        let length = children.length;
+        let others = children.slice(2);
+
+        stats.replaceChildren(children[0], children[1], statsDropsCounter, br, ...others);
     }
 }
 
