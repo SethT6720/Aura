@@ -49,14 +49,7 @@ const gameToCondensing = get('gameToCondensing');
 const condensingToGame = get('condensingToGame');
 
 clickEvent(startButton, function x() {
-    let statsStyle = stats.style;
-    let consStyle = cons.style;
-
     hs(gamePage, 'switch', startPage);
-
-    statsStyle.display = 'block';
-    consStyle.display = 'block';
-
     startButton.removeEventListener('click', x);
 });
 
