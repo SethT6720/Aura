@@ -139,7 +139,7 @@ async function main() {
     while(1 > 0) {
         updateCounters();
         flagChecker();
-        await sleep(10);
+        await sleep(100);
     }
 }
 
