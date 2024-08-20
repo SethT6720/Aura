@@ -18,7 +18,6 @@ const searchButton = get('searchButton');
 const currentlyDoingpBar = get('currentlyDoingpBar');
 const currentlyDoingpBarProgress = get('currentlyDoingpBarProgress');
 const currentlyDoingProgressCounter = get('currentlyDoingProgressCounter');
-const sendMessageButton = get('sendMessage');
 const cons = get('Console');
 
 //Declare Flags
@@ -131,10 +130,6 @@ clickEvent(searchButton, function x() {
         aura += rand;
         sendCons(`You gained ${rand} aura from searching!`);
     });
-});
-
-clickEvent(sendMessageButton, function x() {
-    sendCons('test numero dos');
 });
 
 
