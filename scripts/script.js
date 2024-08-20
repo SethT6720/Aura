@@ -68,7 +68,8 @@ clickEvent(condensingToGame, function x() {
 
 //Temp formula, prob needs balancing later
 function calculateDropCost() {
-    return 50^((totalDrops * .5) + 1);
+    let nextDrop = 50 ** ((totalDrops * 0.5) + 1);
+    return nextDrop;
 }
 
 //Function to update all counters
