@@ -75,8 +75,7 @@ clickEvent(condensingToGame, function x() {
 
 //Temp formula, prob needs balancing later
 function calculateDropCost() {
-    let cost = 50 ** ((totalDrops * 0.5) + 1);
-    return cost;
+    return 50^((totalDrops * .5) + 1);
 }
 
 //Function to update all counters
@@ -87,7 +86,7 @@ function updateCounters() {
     statsAuraCounter.innerText = `Aura: ${aura}`;
     statsCurrentlyDoing.innerText = `Currently Doing: ${currentlyDoing}`;
     statsDropsCounter.innerText = `Drops: ${drops}`;
-    buyDropButton.innerText = `${nextDrop} Aura`;
+    buyDropButton.innerText = calculateDropCost();
     dropsCounter.innerText = drops;
 }
 
