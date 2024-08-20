@@ -12,8 +12,8 @@ const statsAuraCounter = get('statsAuraCounter');
 const statsCurrentlyDoing = get('statsCurrentlyDoing');
 const auraCounter = get('auraCounter');
 const auraButton = get('getAura');
-const looksmaxxingPage = get('looksmaxxingPage');
-const looksmaxxingCounter = get('looksmaxxingCounter');
+const condensingPage = get('condensingPage');
+const dropsCounter = get('dropsCounter');
 const searchButton = get('searchButton');
 const currentlyDoingpBar = get('currentlyDoingpBar');
 const currentlyDoingpBarProgress = get('currentlyDoingpBarProgress');
@@ -22,34 +22,34 @@ const sendMessageButton = get('sendMessage');
 const cons = get('Console');
 
 //Declare Flags
-let maxxingUnlocked = false;
+let condensingUnlocked = false;
 
 
 //Declare game variables
 let aura = 8;
 let currentlyDoing = 'None'
 let currentlyDoingProgress = 0
-let looksmaxxing = 0;
+let drops = 0;
 
 
 
 
 //Navigation stuff
 const startButton = get('startButton');
-const gametoMaxxing = get('gametoMaxxing');
-const maxxingtoGame = get('maxxingtoGame');
+const gameToCondensing = get('gameToCondensing');
+const condensingToGame = get('condensingToGame');
 
 clickEvent(startButton, function x() {
     hs(gamePage, 'switch', startPage);
     startButton.removeEventListener('click', x);
 });
 
-clickEvent(gametoMaxxing, function x() {
-    hs(looksmaxxingPage, 'switch', gamePage);
+clickEvent(gameToCondensing, function x() {
+    hs(condensingPage, 'switch', gamePage);
 });
 
-clickEvent(maxxingtoGame, function x() {
-    hs(gamePage, 'switch', looksmaxxingPage);
+clickEvent(condensingToGame, function x() {
+    hs(gamePage, 'switch', condensingPage);
 });
 
 
@@ -66,12 +66,12 @@ function updateCounters() {
 
 //Function to check flags
 function flagChecker() {
-    //looksmaxxing
-    if (maxxingUnlocked === false && aura >= 50) {
-        maxxingUnlocked = true;
-    } else if (maxxingUnlocked === true) {
-        if (gametoMaxxing.classList.contains('hide')) {
-            gametoMaxxing.classList.remove('hide');
+    //condensing
+    if (condensingUnlocked === false && aura >= 50) {
+        condensingUnlocked = true;
+    } else if (condensingUnlocked === true) {
+        if (gameToCondensing.classList.contains('hide')) {
+            gameToCondensing.classList.remove('hide');
         }
         searchButton.classList.remove('hide');
     }
