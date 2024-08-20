@@ -50,8 +50,6 @@ const condensingToGame = get('condensingToGame');
 
 clickEvent(startButton, function x() {
     hs(gamePage, 'switch', startPage);
-    hs(stats, 'show');
-    hs(cons, 'show');
     startButton.removeEventListener('click', x);
 });
 
