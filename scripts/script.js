@@ -86,7 +86,7 @@ function updateCounters() {
     statsAuraCounter.innerText = `Aura: ${aura}`;
     statsCurrentlyDoing.innerText = `Currently Doing: ${currentlyDoing}`;
     statsDropsCounter.innerText = `Drops: ${drops}`;
-    buyDropButton.innerText = calculateDropCost();
+    buyDropButton.innerText = `${nextDrop} Aura`;
     dropsCounter.innerText = drops;
 }
 
