@@ -26,8 +26,6 @@ const currentlyDoingpBar = get('currentlyDoingpBar');
 const currentlyDoingpBarProgress = get('currentlyDoingpBarProgress');
 const currentlyDoingProgressCounter = get('currentlyDoingProgressCounter');
 
-const sendMessageButton = get('sendMessage');
-
 const cons = get('Console');
 
 //Declare Flags
@@ -79,6 +77,7 @@ function updateCounters() {
     statsCurrentlyDoing.innerText = currentlyDoing;
     statsDropsCounter.innerText = drops
     buyDropButton.innerText = calculateDropCost()
+    dropsCounter.innerText = drops;
 }
 
 //Function to check flags
@@ -161,13 +160,10 @@ clickEvent(searchButton, function x() {
     });
 });
 
-clickEvent(sendMessageButton, function x() {
-    sendCons('test numero dos');
-});
-
 clickEvent(buyDropButton, function x(){
     buyDrop()
 });
+
 
 //Main
 async function main() {
