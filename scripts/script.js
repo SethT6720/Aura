@@ -7,6 +7,7 @@ const sleep = (ms) => new Promise((resolve) => {
 
 //Declare element variables
 const startPage = get('startPage');
+const oGamePage = get('overarchingGamePage');
 const gamePage = get('gamePage');
 
 const statsAuraCounter = get('statsAuraCounter');
@@ -49,7 +50,7 @@ const gameToCondensing = get('gameToCondensing');
 const condensingToGame = get('condensingToGame');
 
 clickEvent(startButton, function x() {
-    hs(gamePage, 'switch', startPage);
+    hs(oGamePage, 'switch', startPage);
     startButton.removeEventListener('click', x);
 });
 
@@ -79,7 +80,7 @@ function updateCounters() {
     auraCounter.innerText = aura;
     statsAuraCounter.innerText = `Aura: ${aura}`;
     statsCurrentlyDoing.innerText = `Currently Doing: ${currentlyDoing}`;
-    statsDropsCounter.innerText = `Drops: ${drops}`;
+    statsDropsCounter.innerText = `Drops: ${drops.toFixed(0)}`;
     buyDropButton.innerText = `${nextDrop} Aura`;
     dropsCounter.innerText = drops;
 }
