@@ -19,22 +19,24 @@
       </button>
   </div>
   
-  <div id="gamePage" class="hide">
+  <div id="overarchingGamePage" class="hide">
 
     <div id="statsDisplay">
-      Aura: <span id="statsAuraCounter"></span><br />
-      <span id="statsDropsCounter" class="hide"></span> <br />
-      Other Things: <br />
-      Currently Doing: <span id="statsCurrentlyDoing">a</span><br />
+      <span id="statsAuraCounter"></span><br />
+      <span id="dropsCounterPH"></span><span id="dropsBrPH"></span>
+      <span id="statsCurrentlyDoing">a</span><br />
       <div id="currentlyDoingpBar" class="pBar hide">
         <div id="currentlyDoingpBarProgress" class="pBarProgress"></div>
         <span id="currentlyDoingProgressCounter"></span>
       </div>
     </div>
-
+  
     <div id="Console">
       
     </div>
+
+
+    <div id="gamePage" class="show">
 
       Welcome to Aura! <br />
       You have <span id="auraCounter">0</span> Aura! <br />
@@ -46,18 +48,22 @@
         Go to condensing room
       </button> <br />  
 
-  </div>
+    </div>
 
-  <div id="condensingPage" class="hide">
-    You have <span id="dropsCounter">0</span> drops of Aura <br />
-    Condense 1 drop: <button id="buyDropButton">If you see this it's broken</button>
+    <div id="condensingPage" class="hide">
+      You have <span id="dropsCounter">0</span> drops of Aura <br />
+      Condense 1 drop: <button id="buyDropButton">If you see this it's broken</button>
   
-    <br />
+      <br />
 
-    <button id="condensingToGame">
-      Go back
-    </button>
+      <button id="condensingToGame">
+        Go back
+      </button>
+    </div>
+
   </div>
+  
+
   <script src="./scripts/script.js" type="module"></script>
 </body>
 

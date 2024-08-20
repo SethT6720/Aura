@@ -7,10 +7,11 @@ const sleep = (ms) => new Promise((resolve) => {
 
 //Declare element variables
 const startPage = get('startPage');
+const oGamePage = get('overarchingGamePage');
 const gamePage = get('gamePage');
 
 const statsAuraCounter = get('statsAuraCounter');
-const statsDropsCounter = get('statsDropsCounter');
+const statsDropsCounter = document.createElement('span');
 const statsCurrentlyDoing = get('statsCurrentlyDoing');
 
 const auraCounter = get('auraCounter');
@@ -26,11 +27,12 @@ const currentlyDoingpBar = get('currentlyDoingpBar');
 const currentlyDoingpBarProgress = get('currentlyDoingpBarProgress');
 const currentlyDoingProgressCounter = get('currentlyDoingProgressCounter');
 
+const stats = get('statsDisplay');
 const cons = get('Console');
 
 //Declare Flags
 let condensingUnlocked = false;
-
+let dropsInStats = false;
 
 //Declare game variables
 let aura = 8;
@@ -48,7 +50,7 @@ const gameToCondensing = get('gameToCondensing');
 const condensingToGame = get('condensingToGame');
 
 clickEvent(startButton, function x() {
-    hs(gamePage, 'switch', startPage);
+    hs(oGamePage, 'switch', startPage);
     startButton.removeEventListener('click', x);
 });
 
@@ -67,17 +69,23 @@ clickEvent(condensingToGame, function x() {
 
 //Temp formula, prob needs balancing later
 function calculateDropCost() {
-    return 50^((totalDrops * .5) + 1)
+    let nextDrop = 50 ** ((totalDrops * 0.5) + 1);
+    return nextDrop;
 }
 
 //Function to update all counters
 function updateCounters() {
-    auraCounter.innerText = aura;
-    statsAuraCounter.innerText = aura;
-    statsCurrentlyDoing.innerText = currentlyDoing;
-    statsDropsCounter.innerText = drops
-    buyDropButton.innerText = calculateDropCost()
-    dropsCounter.innerText = drops;
+    let nextDrop = calculateDropCost();
+    let nextDropFixed = nextDrop.toFixed(0);
+    let auraFixed = aura.toFixed(0);
+    let dropsFixed = drops.toFixed(0);
+
+    auraCounter.innerText = auraFixed;
+    statsAuraCounter.innerText = `Aura: ${auraFixed}`;
+    statsCurrentlyDoing.innerText = `Currently Doing: ${currentlyDoing}`;
+    statsDropsCounter.innerText = `Drops: ${dropsFixed}`;
+    buyDropButton.innerText = `${nextDropFixed} Aura`;
+    dropsCounter.innerText = dropsFixed;
 }
 
 //Function to check flags
@@ -91,6 +99,16 @@ function flagChecker() {
         }
         searchButton.classList.remove('hide');
         statsDropsCounter.classList.remove('hide');
+    }
+    if (condensingUnlocked && !dropsInStats) {
+        dropsInStats = true;
+
+        const br = document.createElement('br');
+        const dropsPH = get('dropsCounterPH');
+        const brPH = get('dropsBrPH');
+
+        stats.replaceChild(statsDropsCounter, dropsPH);
+        stats.replaceChild(br, brPH);
     }
 }
 
