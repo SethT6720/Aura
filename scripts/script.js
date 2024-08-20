@@ -94,12 +94,14 @@ function flagChecker() {
         statsDropsCounter.classList.remove('hide');
     }
     if (condensingUnlocked && !dropsInStats) {
-        const br = document.createElement('br');
-        let children = stats.children;
-        let length = children.length;
-        let others = children.slice(2);
+        dropsInStats = true;
 
-        stats.replaceChildren(children[0], children[1], statsDropsCounter, br, ...others);
+        const br = document.createElement('br');
+        const dropsPH = get('dropsCounterPH');
+        const brPH = get('dropsBrPH');
+
+        stats.replaceChild(statsDropsCounter, dropsPH);
+        stats.replaceChild(br, brPH);
     }
 }
 
