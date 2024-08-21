@@ -35,7 +35,7 @@ let condensingUnlocked = false;
 let dropsInStats = false;
 
 //Declare game variables
-let aura = 8;
+let aura = 49;
 let currentlyDoing = 'None'
 let currentlyDoingProgress = 0
 let drops = 0;
