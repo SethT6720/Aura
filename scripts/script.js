@@ -32,7 +32,7 @@ const stats = get('statsDisplay');
 const cons = get('Console');
 
 //Drop Upgrade Buttons
-const chaiTea = get('')
+const chaiTea = get('doubleMeditate');
 
 
 //Declare Flags
@@ -41,10 +41,12 @@ let dropsInStats = false;
 
 //Declare game variables
 let aura = 49;
+let auraPerMeditate = 1;
+let chaiTeaBonus = 0;
 let currentlyDoing = 'None'
-let currentlyDoingProgress = 0
+let currentlyDoingProgress = 0;
 let drops = 0;
-let totalDrops = 0
+let totalDrops = 0;
 
 //Declare Upgrade vars
 let chaiTeaBought = false;
@@ -121,6 +123,16 @@ function flagChecker() {
     }
 }
 
+function upgradeChecker() {
+    if (chaiTeaBought) {chaiTeaBonus = 1;}
+}
+
+function stuffChecker(what) {
+    switch (what) {
+        case 'apc':
+            auraPerMeditate = 1 + chaiTeaBonus;
+    }
+}
 
 //Progress Bar function
 async function pBar(Bar, Progress, time, button, func, whatDoing, progressCounter) {
@@ -173,8 +185,12 @@ function buyDrop() {
 }
 
 
-function afford(currency, ) {
-
+function afford(currency, price) {
+    if (currency >= price) {
+        return true
+    } else {
+        return false;
+    }
 }
 
 
@@ -183,7 +199,7 @@ function afford(currency, ) {
 //Game code
 
 clickEvent(auraButton, function x() {
-    aura++;
+    aura += auraPerMeditate;
 });
 
 clickEvent(searchButton, function x() {
@@ -199,7 +215,21 @@ clickEvent(buyDropButton, function x(){
     buyDrop()
 });
 
+clickEvent(chaiTea, function x() {
+    let price = 1;
+    let currency = 'drops';
+    let able = afford(drops, price);
 
+    if (able) {
+        drops -= price;
+        chaiTeaBought = true;
+        chaiTea.classList.add('bought');
+
+        chaiTea.removeEventListener('click', x);
+    } else {
+        sendCons(`You need ${price} ${currency} to purchase this upgrade`);
+    }
+});
 
 
 
@@ -209,6 +239,7 @@ clickEvent(buyDropButton, function x(){
 async function main() {
     while(1 > 0) {
         updateCounters();
+        upgradeChecker();
         flagChecker();
         await sleep(100);
     }
