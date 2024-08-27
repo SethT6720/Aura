@@ -225,11 +225,11 @@ clickEvent(chaiTea, function x() {
     let able = afford(drops, price);
 
     if (able) {
+        chaiTea.removeEventListener('click', x);
         drops -= price;
         chaiTeaBought = true;
         chaiTea.classList.add('bought');
-
-        chaiTea.removeEventListener('click', x);
+        sendCons('You have purchased Chai Tea');
     } else {
         sendCons(`You need ${price} ${currency} to purchase this upgrade`);
     }
