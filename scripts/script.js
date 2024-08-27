@@ -20,6 +20,7 @@ const auraButton = get('getAura');
 const condensingPage = get('condensingPage');
 const buyDropButton = get('buyDropButton');
 const dropsCounter = get('dropsCounter');
+const tDropsCounter = get('totalDropsCounter');
 
 const searchButton = get('searchButton');
 
@@ -29,6 +30,10 @@ const currentlyDoingProgressCounter = get('currentlyDoingProgressCounter');
 
 const stats = get('statsDisplay');
 const cons = get('Console');
+
+//Drop Upgrade Buttons
+const chaiTea = get('')
+
 
 //Declare Flags
 let condensingUnlocked = false;
@@ -41,7 +46,8 @@ let currentlyDoingProgress = 0
 let drops = 0;
 let totalDrops = 0
 
-
+//Declare Upgrade vars
+let chaiTeaBought = false;
 
 
 //Navigation stuff
@@ -79,6 +85,8 @@ function updateCounters() {
     let nextDropFixed = nextDrop.toFixed(0);
     let auraFixed = aura.toFixed(0);
     let dropsFixed = drops.toFixed(0);
+    let tDropsFixed = totalDrops.toFixed(0);
+
 
     auraCounter.innerText = auraFixed;
     statsAuraCounter.innerText = `Aura: ${auraFixed}`;
@@ -86,6 +94,7 @@ function updateCounters() {
     statsDropsCounter.innerText = `Drops: ${dropsFixed}`;
     buyDropButton.innerText = `${nextDropFixed} Aura`;
     dropsCounter.innerText = dropsFixed;
+    tDropsCounter.innerText = tDropsFixed;
 }
 
 //Function to check flags
@@ -163,6 +172,14 @@ function buyDrop() {
     }
 }
 
+
+function afford(currency, ) {
+
+}
+
+
+
+
 //Game code
 
 clickEvent(auraButton, function x() {
@@ -181,6 +198,11 @@ clickEvent(searchButton, function x() {
 clickEvent(buyDropButton, function x(){
     buyDrop()
 });
+
+
+
+
+
 
 
 //Main
