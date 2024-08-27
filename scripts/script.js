@@ -99,6 +99,10 @@ function updateCounters() {
     tDropsCounter.innerText = tDropsFixed;
 }
 
+updateOtherThings() {
+    auraPerMeditate = stuffChecker('apc');
+}
+
 //Function to check flags
 function flagChecker() {
     //condensing
@@ -239,6 +243,7 @@ clickEvent(chaiTea, function x() {
 async function main() {
     while(1 > 0) {
         updateCounters();
+        updateOtherThings();
         upgradeChecker();
         flagChecker();
         await sleep(100);
