@@ -100,7 +100,7 @@ function updateCounters() {
 }
 
 function updateOtherThings() {
-    auraPerMeditate = stuffChecker('apc');
+    stuffChecker('apc');
 }
 
 //Function to check flags
