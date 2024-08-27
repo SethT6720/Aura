@@ -31,6 +31,10 @@ html {
   text-align: center;
 }
 
+.bought {
+  background-color: rgb(40, 180, 40);
+}
+
 #statsDisplay {
   position: sticky;
   top: 0%;
