@@ -99,6 +99,10 @@ function updateCounters() {
     tDropsCounter.innerText = tDropsFixed;
 }
 
+updateOtherThings() {
+    auraPerMeditate = stuffChecker('apc');
+}
+
 //Function to check flags
 function flagChecker() {
     //condensing
@@ -221,11 +225,11 @@ clickEvent(chaiTea, function x() {
     let able = afford(drops, price);
 
     if (able) {
+        chaiTea.removeEventListener('click', x);
         drops -= price;
         chaiTeaBought = true;
         chaiTea.classList.add('bought');
-
-        chaiTea.removeEventListener('click', x);
+        sendCons('You have purchased Chai Tea');
     } else {
         sendCons(`You need ${price} ${currency} to purchase this upgrade`);
     }
@@ -239,6 +243,7 @@ clickEvent(chaiTea, function x() {
 async function main() {
     while(1 > 0) {
         updateCounters();
+        updateOtherThings();
         upgradeChecker();
         flagChecker();
         await sleep(100);
