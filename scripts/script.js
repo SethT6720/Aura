@@ -99,7 +99,7 @@ function updateCounters() {
     tDropsCounter.innerText = tDropsFixed;
 }
 
-updateOtherThings() {
+function updateOtherThings() {
     auraPerMeditate = stuffChecker('apc');
 }
 
