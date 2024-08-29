@@ -237,6 +237,7 @@ clickEvent(chaiTea, function x() {
         chaiTeaBought = true;
         chaiTea.classList.add('bought');
         sendCons('You have purchased Chai Tea');
+        upgradeChecker();
     } else {
         sendCons(`You need ${price} ${currency} to purchase this upgrade`);
     }
@@ -249,7 +250,6 @@ async function main() {
     while(1 > 0) {
         updateCounters();
         updateOtherThings();
-        upgradeChecker();
         flagChecker();
         await sleep(100);
     }
