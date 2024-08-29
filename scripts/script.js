@@ -145,8 +145,10 @@ function whatSkills() {
     let layer1Bought = document.getElementsByClassName('layerOneSkill bought');
 
     if (layer1.length === layer1Bought.length) {
-        yogaMat.classList.remove('hide');
-        mindDivide.classList.remove('hide');
+        let list = document.getElementsByClassName('layerTwoSkill hide');
+        for (let i = 0; i < list.length; i++) {
+            list[0].classList.remove('hide');
+        }
     }
 }
 
