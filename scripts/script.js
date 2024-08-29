@@ -53,6 +53,7 @@ let dropsInStats = false;
 //Declare game variables
 let aura = 49;
 let auraPerMeditate = 1;
+let meditatePerSec = 0;
 let currentlyDoing = 'None'
 let currentlyDoingProgress = 0;
 let drops = 0;
@@ -108,6 +109,7 @@ function updateCounters() {
 
 function updateOtherThings() {
     stuffChecker('apc');
+    stuffChecker('mpc');
 }
 
 //Function to check flags
@@ -156,6 +158,9 @@ function stuffChecker(what) {
     switch (what) {
         case 'apc':
             auraPerMeditate = (1 + chaiTeaBonus) * yogaMatBonus;
+            break;
+        case 'mps':
+            meditatePerSec = mindDivideXPerSec;
     }
 }
 
@@ -274,7 +279,39 @@ clickEvent(yogaMat, function x() {
     }
 });
 
-//Main
+clickEvent(mindDivide, function x() {
+    let price = 1;
+    let currency = 'drops';
+    let able = afford(drops, price);
+
+    if (able) {
+        mindDivide.removeEventListener('click', x);
+        drops -= price;
+        mindDivideBought = true;
+        mindDivide.classList.add('bought');
+        sendCons('You have learned how to Divide your Mind');
+        upgradeChecker();
+    } else {
+        sendCons(`You need ${price} ${currency} to purchase this skill`);
+    }
+})
+
+//Main and Meditate per second
+
+async function medPerSec() {
+    while (true) {
+        if (meditatePerSec <= 10) {
+            aura += auraPerMeditate;
+            await sleep(1000 / meditatePerSec);
+        } else if (meditatePerSec > 10) {
+            aura += (auraPerMeditate * meditatePerSec / 10)
+            await sleep(100);
+        } else {
+            await sleep(250);
+        }
+    }
+}
+
 async function main() {
     while(1 > 0) {
         updateCounters();
@@ -286,3 +323,4 @@ async function main() {
 }
 
 main();
+medPerSec();
