@@ -31,9 +31,18 @@ const currentlyDoingProgressCounter = get('currentlyDoingProgressCounter');
 const stats = get('statsDisplay');
 const cons = get('Console');
 
-//Drop Upgrade Buttons
+//Drop Skill Buttons
 const chaiTea = get('doubleMeditate');
+const yogaMat = get('doubleMeditate2');
+const mindDivide = get('autoMeditator');
 
+//Declare Skill vars
+let chaiTeaBought = false;
+let chaiTeaBonus = 0;
+let yogaMatBought = false;
+let yogaMatBonus = 1;
+let mindDivideBought = false;
+let mindDivideXPerSec = 0;
 
 //Declare Flags
 let condensingUnlocked = false;
@@ -42,14 +51,10 @@ let dropsInStats = false;
 //Declare game variables
 let aura = 49;
 let auraPerMeditate = 1;
-let chaiTeaBonus = 0;
 let currentlyDoing = 'None'
 let currentlyDoingProgress = 0;
 let drops = 0;
 let totalDrops = 0;
-
-//Declare Upgrade vars
-let chaiTeaBought = false;
 
 
 //Navigation stuff
