@@ -250,14 +250,29 @@ clickEvent(chaiTea, function x() {
         drops -= price;
         chaiTeaBought = true;
         chaiTea.classList.add('bought');
-        sendCons('You have purchased Chai Tea');
+        sendCons('You have purchased a lifetime supply of Chai Tea');
         upgradeChecker();
     } else {
-        sendCons(`You need ${price} ${currency} to purchase this upgrade`);
+        sendCons(`You need ${price} ${currency} to purchase this skill`);
     }
 });
 
+clickEvent(yogaMat, function x() {
+    let price = 1;
+    let currency = 'drops';
+    let able = afford(drops, price);
 
+    if (able) {
+        yogaMat.removeEventListener('click', x);
+        drops -= price;
+        yogaMatBought = true;
+        yogaMat.classList.add('bought');
+        sendCons('You have purchased a Yoga Mat');
+        upgradeChecker();
+    } else {
+        sendCons(`You need ${price} ${currency} to purchase this skill`);
+    }
+});
 
 //Main
 async function main() {
