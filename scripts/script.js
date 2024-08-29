@@ -109,7 +109,7 @@ function updateCounters() {
 
 function updateOtherThings() {
     stuffChecker('apc');
-    stuffChecker('mpc');
+    stuffChecker('mps');
 }
 
 //Function to check flags
