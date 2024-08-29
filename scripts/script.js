@@ -143,6 +143,11 @@ function upgradeChecker() {
 function whatSkills() {
     let layer1 = document.getElementsByClassName('layerOneSkill');
     let layer1Bought = document.getElementsByClassName('layerOneSkill bought');
+
+    if (layer1.length === layer1Bought.length) {
+        yogaMat.classList.remove('hide');
+        mindDivide.classList.remove('hide');
+    }
 }
 
 function stuffChecker(what) {
