@@ -134,12 +134,14 @@ function flagChecker() {
 
 function upgradeChecker() {
     if (chaiTeaBought) {chaiTeaBonus = 1;}
+    if (yogaMatBought) {yogaMatBonus = 2;}
+    if (mindDivideBought) {mindDivideXPerSec = 1;}
 }
 
 function stuffChecker(what) {
     switch (what) {
         case 'apc':
-            auraPerMeditate = 1 + chaiTeaBonus;
+            auraPerMeditate = (1 + chaiTeaBonus) * yogaMatBonus;
     }
 }
 
