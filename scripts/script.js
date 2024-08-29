@@ -31,9 +31,20 @@ const currentlyDoingProgressCounter = get('currentlyDoingProgressCounter');
 const stats = get('statsDisplay');
 const cons = get('Console');
 
-//Drop Upgrade Buttons
+//Drop Skill Buttons
 const chaiTea = get('doubleMeditate');
+const yogaMat = get('doubleMeditate2');
+const mindDivide = get('autoMeditator');
 
+//Declare Skill vars
+let layerTwoUnlock = false;
+
+let chaiTeaBought = false;
+let chaiTeaBonus = 0;
+let yogaMatBought = false;
+let yogaMatBonus = 1;
+let mindDivideBought = false;
+let mindDivideXPerSec = 0;
 
 //Declare Flags
 let condensingUnlocked = false;
@@ -42,14 +53,10 @@ let dropsInStats = false;
 //Declare game variables
 let aura = 49;
 let auraPerMeditate = 1;
-let chaiTeaBonus = 0;
 let currentlyDoing = 'None'
 let currentlyDoingProgress = 0;
 let drops = 0;
 let totalDrops = 0;
-
-//Declare Upgrade vars
-let chaiTeaBought = false;
 
 
 //Navigation stuff
@@ -129,12 +136,24 @@ function flagChecker() {
 
 function upgradeChecker() {
     if (chaiTeaBought) {chaiTeaBonus = 1;}
+    if (yogaMatBought) {yogaMatBonus = 2;}
+    if (mindDivideBought) {mindDivideXPerSec = 1;}
+}
+
+function whatSkills() {
+    let layer1 = document.getElementsByClassName('layerOneSkill');
+    let layer1Bought = document.getElementsByClassName('layerOneSkill bought');
+
+    if (layer1.length === layer1Bought.length) {
+        yogaMat.classList.remove('hide');
+        mindDivide.classList.remove('hide');
+    }
 }
 
 function stuffChecker(what) {
     switch (what) {
         case 'apc':
-            auraPerMeditate = 1 + chaiTeaBonus;
+            auraPerMeditate = (1 + chaiTeaBonus) * yogaMatBonus;
     }
 }
 
@@ -230,6 +249,7 @@ clickEvent(chaiTea, function x() {
         chaiTeaBought = true;
         chaiTea.classList.add('bought');
         sendCons('You have purchased Chai Tea');
+        upgradeChecker();
     } else {
         sendCons(`You need ${price} ${currency} to purchase this upgrade`);
     }
@@ -242,7 +262,6 @@ async function main() {
     while(1 > 0) {
         updateCounters();
         updateOtherThings();
-        upgradeChecker();
         flagChecker();
         await sleep(100);
     }
