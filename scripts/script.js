@@ -37,6 +37,8 @@ const yogaMat = get('doubleMeditate2');
 const mindDivide = get('autoMeditator');
 
 //Declare Skill vars
+let layerTwoUnlock = false;
+
 let chaiTeaBought = false;
 let chaiTeaBonus = 0;
 let yogaMatBought = false;
@@ -136,6 +138,11 @@ function upgradeChecker() {
     if (chaiTeaBought) {chaiTeaBonus = 1;}
     if (yogaMatBought) {yogaMatBonus = 2;}
     if (mindDivideBought) {mindDivideXPerSec = 1;}
+}
+
+function whatSkills() {
+    let layer1 = document.getElementsByClassName('layerOneSkill');
+    let layer1Bought = document.getElementsByClassName('layerOneSkill bought');
 }
 
 function stuffChecker(what) {
