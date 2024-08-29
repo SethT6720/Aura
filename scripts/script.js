@@ -263,6 +263,7 @@ async function main() {
         updateCounters();
         updateOtherThings();
         flagChecker();
+        whatSkills();
         await sleep(100);
     }
 }
