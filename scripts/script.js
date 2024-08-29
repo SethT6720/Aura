@@ -300,7 +300,7 @@ clickEvent(mindDivide, function x() {
 
 async function medPerSec() {
     while (true) {
-        if (meditatePerSec <= 10) {
+        if (meditatePerSec <= 10 && meditatePerSec !== 0) {
             aura += auraPerMeditate;
             await sleep(1000 / meditatePerSec);
         } else if (meditatePerSec > 10) {
