@@ -157,7 +157,7 @@ function whatSkills() {
 function stuffChecker(what) {
     switch (what) {
         case 'apc':
-            auraPerMeditate = (1 + chaiTeaBonus) * yogaMatBonus;
+            auraPerMeditate = ((1 + chaiTeaBonus) * yogaMatBonus) * 100000000;
             break;
         case 'mps':
             meditatePerSec = mindDivideXPerSec;
