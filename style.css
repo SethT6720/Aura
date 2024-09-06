@@ -60,6 +60,9 @@ html {
   width: 50%;
   left: 25%;
   border: 1px solid blue;
+  children {
+    padding: 1px;
+  }
  }
 
  #respecSkills {
