@@ -36,7 +36,9 @@ html {
 }
 
 .skill {
-  margin: 1px;
+  padding: 1px;
+  height: 18px;
+  width: 30px;
 }
 
 #statsDisplay {
@@ -60,7 +62,7 @@ html {
  #skillTree {
   position: absolute;
   bottom: 10px;
-  height: 15%;
+  height: 100px;
   width: 50%;
   left: 25%;
   border: 1px solid blue;
