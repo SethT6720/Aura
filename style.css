@@ -35,6 +35,11 @@ html {
   background-color: rgb(40, 180, 40);
 }
 
+.skill {
+  padding-top: 1px;
+  padding-left: 1px;
+}
+
 #statsDisplay {
   position: sticky;
   top: 0%;
@@ -60,9 +65,6 @@ html {
   width: 50%;
   left: 25%;
   border: 1px solid blue;
-  children {
-    padding: 1px;
-  }
  }
 
  #respecSkills {
