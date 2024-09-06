@@ -36,9 +36,8 @@ html {
 }
 
 .skill {
-  padding: 1px;
-  height: 18px;
-  width: 30px;
+  height: 20px;
+  width: 50px
 }
 
 #statsDisplay {
@@ -62,10 +61,11 @@ html {
  #skillTree {
   position: absolute;
   bottom: 10px;
-  height: 100px;
+  height: 110px;
   width: 50%;
   left: 25%;
   border: 1px solid blue;
+  padding: 1px;
  }
 
  #respecSkills {
