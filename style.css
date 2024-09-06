@@ -36,8 +36,7 @@ html {
 }
 
 .skill {
-  padding-top: 1px;
-  padding-left: 1px;
+  margin: 1px;
 }
 
 #statsDisplay {
