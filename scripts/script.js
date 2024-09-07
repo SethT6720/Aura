@@ -146,9 +146,12 @@ function upgradeChecker() {
 
 function skillsBought() {
     function x(ele) {
-        let bool = ele.classList.includes('bought');
-        return bool;
-    }
+        if (ele.classList.includes('bought')) {
+            return true;
+        } else {
+            return false;
+        }
+    }   
 
     if (x(chaiTea)) {
         chaiTeaBought = true;
