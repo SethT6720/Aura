@@ -285,6 +285,7 @@ clickEvent(chaiTea, function x() {
     } else {
         sendCons(`You need ${price} ${currency} to purchase this skill`);
     }
+    skillsBought();
 });
 
 clickEvent(yogaMat, function x() {
@@ -300,6 +301,7 @@ clickEvent(yogaMat, function x() {
     } else {
         sendCons(`You need ${price} ${currency} to purchase this skill`);
     }
+    skillsBought();
 });
 
 clickEvent(mindDivide, function x() {
@@ -315,6 +317,7 @@ clickEvent(mindDivide, function x() {
     } else {
         sendCons(`You need ${price} ${currency} to purchase this skill`);
     }
+    skillsBought();
 });
 
 clickEvent(respecSkills, function x() {
@@ -346,7 +349,6 @@ async function main() {
         updateOtherThings();
         flagChecker();
         whatSkills();
-        skillsBought();
         await sleep(100);
     }
 }
