@@ -152,17 +152,17 @@ function skillsBought() {
 
     if (x(chaiTea)) {
         chaiTeaBought = true;
-    } else if (!x(chaiTea)) {
+    } else {
         chaiTeaBought = false;
     }
     if (x(yogaMat)) {
         yogaMatBought = true;
-    } else if (!x(chaiTea)) {
+    } else {
         yogaMatBought = false;
     }
     if (x(mindDivide)) {
         mindDivideBought = true;
-    } else if (!x(mindDivide)) {
+    } else {
         mindDivideBought = false;
     }
 
