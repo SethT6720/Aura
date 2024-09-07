@@ -35,6 +35,11 @@ html {
   background-color: rgb(40, 180, 40);
 }
 
+.skill {
+  height: 20px;
+  width: 55px
+}
+
 #statsDisplay {
   position: sticky;
   top: 0%;
@@ -56,8 +61,15 @@ html {
  #skillTree {
   position: absolute;
   bottom: 10px;
-  height: 15%;
+  height: 135px;
   width: 50%;
   left: 25%;
   border: 1px solid blue;
+  padding: 1px;
+ }
+
+ #respecSkills {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
  }
