@@ -53,7 +53,7 @@ let condensingUnlocked = false;
 let dropsInStats = false;
 
 //Declare game variables
-let aura = 40;
+let aura = 35;
 let auraPerMeditate = 1;
 let meditatePerSec = 0;
 let currentlyDoing = 'None'
@@ -320,7 +320,16 @@ clickEvent(mindDivide, function x() {
 });
 
 clickEvent(respecSkills, function x() {
+    let sb = document.getElementsByClassName('skill bought');
 
+    if (sb.length === 0) {
+        sendCons("You don't have any skills to respec");
+    } else if (sb.length > 0) {
+        for (let i = 0; i < sb.length; i++) {
+            sb[0].classList.remove('bought');
+        }
+        drops = totalDrops;
+    }
 });
 
 
