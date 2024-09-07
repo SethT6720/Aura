@@ -36,6 +36,8 @@ const chaiTea = get('doubleMeditate');
 const yogaMat = get('doubleMeditate2');
 const mindDivide = get('autoMeditator');
 
+const respecSkills = get('respecSkills');
+
 //Declare Skill vars
 let layerTwoUnlock = false;
 
@@ -140,6 +142,31 @@ function upgradeChecker() {
     if (chaiTeaBought) {chaiTeaBonus = 1;}
     if (yogaMatBought) {yogaMatBonus = 2;}
     if (mindDivideBought) {mindDivideXPerSec = 1;}
+}
+
+function skillsBought() {
+    function x(ele) {
+        let bool = ele.classList.includes('bought');
+        return bool;
+    }
+
+    if (x(chaiTea)) {
+        chaiTeaBought = true;
+    } else if (!x(chaiTea)) {
+        chaiTeaBought = false;
+    }
+    if (x(yogaMat)) {
+        yogaMatBought = true;
+    } else if (!x(chaiTea)) {
+        yogaMatBought = false;
+    }
+    if (x(mindDivide)) {
+        mindDivideBought = true;
+    } else if (!x(mindDivide)) {
+        mindDivideBought = false;
+    }
+
+    upgradeChecker();
 }
 
 function whatSkills() {
@@ -253,10 +280,8 @@ clickEvent(chaiTea, function x() {
     if (able) {
         chaiTea.removeEventListener('click', x);
         drops -= price;
-        chaiTeaBought = true;
         chaiTea.classList.add('bought');
         sendCons('You have purchased a lifetime supply of Chai Tea');
-        upgradeChecker();
     } else {
         sendCons(`You need ${price} ${currency} to purchase this skill`);
     }
@@ -270,10 +295,8 @@ clickEvent(yogaMat, function x() {
     if (able) {
         yogaMat.removeEventListener('click', x);
         drops -= price;
-        yogaMatBought = true;
         yogaMat.classList.add('bought');
         sendCons('You have purchased a Yoga Mat');
-        upgradeChecker();
     } else {
         sendCons(`You need ${price} ${currency} to purchase this skill`);
     }
@@ -287,14 +310,19 @@ clickEvent(mindDivide, function x() {
     if (able) {
         mindDivide.removeEventListener('click', x);
         drops -= price;
-        mindDivideBought = true;
         mindDivide.classList.add('bought');
         sendCons('You have learned how to Divide your Mind');
-        upgradeChecker();
     } else {
         sendCons(`You need ${price} ${currency} to purchase this skill`);
     }
-})
+});
+
+clickEvent(respecSkills, function x() {
+
+});
+
+
+
 
 //Main and Meditate per second
 
@@ -318,6 +346,7 @@ async function main() {
         updateOtherThings();
         flagChecker();
         whatSkills();
+        skillsBought();
         await sleep(100);
     }
 }
