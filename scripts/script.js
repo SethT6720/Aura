@@ -53,7 +53,7 @@ let condensingUnlocked = false;
 let dropsInStats = false;
 
 //Declare game variables
-let aura = 49;
+let aura = 40;
 let auraPerMeditate = 1;
 let meditatePerSec = 0;
 let currentlyDoing = 'None'
