@@ -146,7 +146,7 @@ function upgradeChecker() {
 
 function skillsBought() {
     function x(ele) {
-        return ele.classList.includes();
+        return ele.classList.includes('bought');
     }   
 
     if (x(chaiTea)) {
