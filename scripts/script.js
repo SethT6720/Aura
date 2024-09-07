@@ -146,7 +146,7 @@ function upgradeChecker() {
 
 function skillsBought() {
     function x(ele) {
-        return ele.classList.includes('bought');
+        return ele.classList.contains('bought');
     }   
 
     if (x(chaiTea)) {
@@ -164,6 +164,8 @@ function skillsBought() {
     } else {
         mindDivideBought = false;
     }
+
+    upgradeChecker();
 }
 
 function whatSkills() {
@@ -346,7 +348,6 @@ async function main() {
         updateOtherThings();
         flagChecker();
         whatSkills();
-        upgradeChecker();
         await sleep(100);
     }
 }
