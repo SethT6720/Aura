@@ -330,6 +330,7 @@ clickEvent(respecSkills, function x() {
         }
         drops = totalDrops;
     }
+    skillsBought();
 });
 
 
