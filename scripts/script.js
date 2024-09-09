@@ -289,7 +289,7 @@ function s(skill) {
             let able = afford(drops, price);
     
             if (able) {
-                chaiTea.removeEventListener('click', s('chaiTea'));
+                chaiTea.removeEventListener('click', s);
                 drops -= price;
                 chaiTea.classList.add('bought');
                 sendCons('You have purchased a lifetime supply of Chai Tea');
@@ -304,7 +304,7 @@ function s(skill) {
             able = afford(drops, price);
 
             if (able) {
-                yogaMat.removeEventListener('click', s('yogaMat'));
+                yogaMat.removeEventListener('click', s);
                 drops -= price;
                 yogaMat.classList.add('bought');
                 sendCons('You have purchased a Yoga Mat');
@@ -319,7 +319,7 @@ function s(skill) {
             able = afford(drops, price);
 
             if (able) {
-                mindDivide.removeEventListener('click', s('mindDivide'));
+                mindDivide.removeEventListener('click', s);
                 drops -= price;
                 mindDivide.classList.add('bought');
                 sendCons('You have learned how to Divide your Mind');
@@ -331,11 +331,11 @@ function s(skill) {
     }
 }
 
-clickEvent(chaiTea, s('chaiTea'));
+chaiTea.addEventListener('click', s('chaiTea'));
 
-clickEvent(yogaMat, s('yogaMat'));
+yogaMat.addEventListener('click', s('yogaMat'));
 
-clickEvent(mindDivide, s('mindDivide'));
+mindDivide.addEventListener('click', s('mindDivide'));
 
 clickEvent(respecSkills, function x() {
     let sb = document.getElementsByClassName('skill bought');
