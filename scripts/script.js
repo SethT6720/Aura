@@ -51,7 +51,6 @@ let mindDivideXPerSec = 0;
 //Declare Flags
 let condensingUnlocked = false;
 let dropsInStats = false;
-let respecShowing = false;
 
 //Declare game variables
 let aura = 30;
@@ -136,12 +135,6 @@ function flagChecker() {
 
         stats.replaceChild(statsDropsCounter, dropsPH);
         stats.replaceChild(br, brPH);
-    }
-
-    let sb = document.getElementsByClassName('skill bought');
-    if (sb.length >= 1) {
-        respecShowing = true;
-        respecSkills.classList.remove('hide');
     }
 }
 
