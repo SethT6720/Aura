@@ -278,53 +278,64 @@ clickEvent(buyDropButton, function x(){
     buyDrop()
 });
 
-clickEvent(chaiTea, function x() {
-    let price = 1;
-    let currency = 'drops';
-    let able = afford(drops, price);
 
-    if (able) {
-        chaiTea.removeEventListener('click', x);
-        drops -= price;
-        chaiTea.classList.add('bought');
-        sendCons('You have purchased a lifetime supply of Chai Tea');
-    } else {
-        sendCons(`You need ${price} ${currency} to purchase this skill`);
+// Skill event listeners
+
+function s(skill) {
+    switch (skill) {
+        case 'chaiTea': 
+            let price = 1;
+            let currency = 'drops';
+            let able = afford(drops, price);
+    
+            if (able) {
+                chaiTea.removeEventListener('click', s('chaiTea'));
+                drops -= price;
+                chaiTea.classList.add('bought');
+                sendCons('You have purchased a lifetime supply of Chai Tea');
+            } else {
+                sendCons(`You need ${price} ${currency} to purchase this skill`);
+            }
+            skillsBought();
+            break;
+        case 'yogaMat':
+            price = 1;
+            currency = 'drops';
+            able = afford(drops, price);
+
+            if (able) {
+                yogaMat.removeEventListener('click', s('yogaMat'));
+                drops -= price;
+                yogaMat.classList.add('bought');
+                sendCons('You have purchased a Yoga Mat');
+            } else {
+                sendCons(`You need ${price} ${currency} to purchase this skill`);
+            }
+            skillsBought();
+            break;
+        case 'mindDivide':
+            price = 1;
+            currency = 'drops';
+            able = afford(drops, price);
+
+            if (able) {
+                mindDivide.removeEventListener('click', s('mindDivide'));
+                drops -= price;
+                mindDivide.classList.add('bought');
+                sendCons('You have learned how to Divide your Mind');
+            } else {
+                sendCons(`You need ${price} ${currency} to purchase this skill`);
+            }
+            skillsBought();
+            break;
     }
-    skillsBought();
-});
+}
 
-clickEvent(yogaMat, function x() {
-    let price = 1;
-    let currency = 'drops';
-    let able = afford(drops, price);
+clickEvent(chaiTea, s('chaiTea'));
 
-    if (able) {
-        yogaMat.removeEventListener('click', x);
-        drops -= price;
-        yogaMat.classList.add('bought');
-        sendCons('You have purchased a Yoga Mat');
-    } else {
-        sendCons(`You need ${price} ${currency} to purchase this skill`);
-    }
-    skillsBought();
-});
+clickEvent(yogaMat, s('yogaMat'));
 
-clickEvent(mindDivide, function x() {
-    let price = 1;
-    let currency = 'drops';
-    let able = afford(drops, price);
-
-    if (able) {
-        mindDivide.removeEventListener('click', x);
-        drops -= price;
-        mindDivide.classList.add('bought');
-        sendCons('You have learned how to Divide your Mind');
-    } else {
-        sendCons(`You need ${price} ${currency} to purchase this skill`);
-    }
-    skillsBought();
-});
+clickEvent(mindDivide, s('mindDivide'));
 
 clickEvent(respecSkills, function x() {
     let sb = document.getElementsByClassName('skill bought');
