@@ -54,7 +54,7 @@ let dropsInStats = false;
 let respecShowing = false;
 
 //Declare game variables
-let aura = 35;
+let aura = 30;
 let auraPerMeditate = 1;
 let meditatePerSec = 0;
 let currentlyDoing = 'None'
