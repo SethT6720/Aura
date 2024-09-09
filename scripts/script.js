@@ -58,7 +58,7 @@ let dropsInStats = false;
 let respecShowing = false;
 
 //Declare game variables
-let aura = 15;
+let aura = 10;
 let auraPerMeditate = 1;
 let meditatePerSec = 0;
 let currentlyDoing = 'None'
@@ -150,9 +150,9 @@ function flagChecker() {
 }
 
 function upgradeChecker() {
-    if (chaiTeaBought) {chaiTeaBonus = 1;}
-    if (yogaMatBought) {yogaMatBonus = 2;}
-    if (mindDivideBought) {mindDivideXPerSec = 1;}
+    if (chaiTeaBought) {chaiTeaBonus = 1;} else {chaiTeaBonus = 0;}
+    if (yogaMatBought) {yogaMatBonus = 2;} else {yogaMatBonus = 1;}
+    if (mindDivideBought) {mindDivideXPerSec = 1;} else {mindDivideXPerSec = 0;}
 }
 
 function skillsBought() {
