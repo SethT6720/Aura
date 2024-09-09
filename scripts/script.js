@@ -36,6 +36,8 @@ const chaiTea = get('doubleMeditate');
 const yogaMat = get('doubleMeditate2');
 const mindDivide = get('autoMeditator');
 
+const respecSkills = get('respecSkills');
+
 //Declare Skill vars
 let layerTwoUnlock = false;
 
@@ -49,9 +51,10 @@ let mindDivideXPerSec = 0;
 //Declare Flags
 let condensingUnlocked = false;
 let dropsInStats = false;
+let respecShowing = false;
 
 //Declare game variables
-let aura = 49;
+let aura = 35;
 let auraPerMeditate = 1;
 let meditatePerSec = 0;
 let currentlyDoing = 'None'
@@ -134,12 +137,42 @@ function flagChecker() {
         stats.replaceChild(statsDropsCounter, dropsPH);
         stats.replaceChild(br, brPH);
     }
+
+    let sb = document.getElementsByClassName('skill bought');
+    if (sb.length >= 1) {
+        respecShowing = true;
+        respecSkills.classList.remove('hide');
+    }
 }
 
 function upgradeChecker() {
     if (chaiTeaBought) {chaiTeaBonus = 1;}
     if (yogaMatBought) {yogaMatBonus = 2;}
     if (mindDivideBought) {mindDivideXPerSec = 1;}
+}
+
+function skillsBought() {
+    function x(ele) {
+        return ele.classList.contains('bought');
+    }   
+
+    if (x(chaiTea)) {
+        chaiTeaBought = true;
+    } else {
+        chaiTeaBought = false;
+    }
+    if (x(yogaMat)) {
+        yogaMatBought = true;
+    } else {
+        yogaMatBought = false;
+    }
+    if (x(mindDivide)) {
+        mindDivideBought = true;
+    } else {
+        mindDivideBought = false;
+    }
+
+    upgradeChecker();
 }
 
 function whatSkills() {
@@ -253,13 +286,12 @@ clickEvent(chaiTea, function x() {
     if (able) {
         chaiTea.removeEventListener('click', x);
         drops -= price;
-        chaiTeaBought = true;
         chaiTea.classList.add('bought');
         sendCons('You have purchased a lifetime supply of Chai Tea');
-        upgradeChecker();
     } else {
         sendCons(`You need ${price} ${currency} to purchase this skill`);
     }
+    skillsBought();
 });
 
 clickEvent(yogaMat, function x() {
@@ -270,13 +302,12 @@ clickEvent(yogaMat, function x() {
     if (able) {
         yogaMat.removeEventListener('click', x);
         drops -= price;
-        yogaMatBought = true;
         yogaMat.classList.add('bought');
         sendCons('You have purchased a Yoga Mat');
-        upgradeChecker();
     } else {
         sendCons(`You need ${price} ${currency} to purchase this skill`);
     }
+    skillsBought();
 });
 
 clickEvent(mindDivide, function x() {
@@ -287,14 +318,30 @@ clickEvent(mindDivide, function x() {
     if (able) {
         mindDivide.removeEventListener('click', x);
         drops -= price;
-        mindDivideBought = true;
         mindDivide.classList.add('bought');
         sendCons('You have learned how to Divide your Mind');
-        upgradeChecker();
     } else {
         sendCons(`You need ${price} ${currency} to purchase this skill`);
     }
-})
+    skillsBought();
+});
+
+clickEvent(respecSkills, function x() {
+    let sb = document.getElementsByClassName('skill bought');
+
+    if (sb.length === 0) {
+        sendCons("You don't have any skills to respec");
+    } else if (sb.length > 0) {
+        for (let i = 0; i < sb.length; i++) {
+            sb[0].classList.remove('bought');
+        }
+        drops = totalDrops;
+    }
+    skillsBought();
+});
+
+
+
 
 //Main and Meditate per second
 
