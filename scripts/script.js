@@ -58,7 +58,7 @@ let dropsInStats = false;
 let respecShowing = false;
 
 //Declare game variables
-let aura = 10;
+let aura = 0;
 let auraPerMeditate = 1;
 let meditatePerSec = 0;
 let currentlyDoing = 'None'
@@ -179,15 +179,22 @@ function skillsBought() {
     upgradeChecker();
 }
 
-function whatSkills() {
+function whatSkills() {     
     let layer1 = document.getElementsByClassName('layerOneSkill');
     let layer1Bought = document.getElementsByClassName('layerOneSkill bought');
 
     if (layer1.length === layer1Bought.length) {
         let list = document.getElementsByClassName('layerTwoSkill hide');
         for (let i = 0; i < list.length; i++) {
-            list[0].classList.remove('hide');
+            list[i].classList.remove('hide');
         }
+    } else {
+        let list = document.getElementsByClassName('layerTwoSkill');
+        for (let i = 0; i < list.length; i++) {
+            if (!list[i].classList.contains('hide')) {
+                list[i].classList.add('hide');
+            }
+        } 
     }
 }
 
