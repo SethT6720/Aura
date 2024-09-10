@@ -179,14 +179,14 @@ function skillsBought() {
     upgradeChecker();
 }
 
-function whatSkills() {
+function whatSkills() {     
     let layer1 = document.getElementsByClassName('layerOneSkill');
     let layer1Bought = document.getElementsByClassName('layerOneSkill bought');
 
     if (layer1.length === layer1Bought.length) {
         let list = document.getElementsByClassName('layerTwoSkill hide');
         for (let i = 0; i < list.length; i++) {
-            list[0].classList.remove('hide');
+            list[i].classList.remove('hide');
         }
     } else {
         let list = document.getElementsByClassName('layerTwoSkill');
