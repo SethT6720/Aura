@@ -58,7 +58,7 @@ let dropsInStats = false;
 let respecShowing = false;
 
 //Declare game variables
-let aura = 0;
+let aura = 1;
 let auraPerMeditate = 1;
 let meditatePerSec = 0;
 let currentlyDoing = 'None'
@@ -190,7 +190,13 @@ function whatSkills() {
         }
     } else {
         let list = document.getElementsByClassName('layerTwoSkill');
-        let shown = list.filter((ele) => !ele.classList.contains('hide'));
+        let shown = list.filter((ele) => {
+            if (ele.classList.contains('hide')) {
+                return false;
+            } else {
+                return true;
+            }
+        });
         for (let i = 0; i < shown.length; i++) {
             shown[i].classList.add('hide');
         }
