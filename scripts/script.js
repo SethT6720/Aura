@@ -238,11 +238,9 @@ async function pBar(Bar, Progress, time, button, func, whatDoing, progressCounte
 
 //Function to send a message in the Console
 function sendCons(message) {
-    let children = cons.childElementCount;
-    if (children >= 7) {
-        cons.removeChild(cons.getElementsByTagName('p')[0]);
-    }
-    createEle('p', message, cons);
+    const p = document.createElement('p');
+    p.innerHTML = message;
+    cons.prepend(p);
 }
 
 

@@ -51,6 +51,7 @@ html {
 
  #Console {
   position: absolute;
+  overflow-y: hidden;
   top: 115px;
   right: 6px;
   height: 500px;
